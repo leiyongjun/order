@@ -38,6 +38,9 @@ public class LoginController {
     @RequestMapping("/login")
     public Object login(@RequestBody User user,HttpSession session)
     {
+        System.out.println("sessionId :::" + session.getId());
+        String sessImgCode = session.getAttribute("rightCode") == null ?
+                                "" : session.getAttribute("rightCode").toString();
         Map<String,Object> map=new HashMap<>();
         if(user.getUserPwd()==null||user.getUserName()==null){
             map.put("error","请完善信息");

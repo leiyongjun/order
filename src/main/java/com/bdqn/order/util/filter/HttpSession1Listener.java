@@ -11,15 +11,15 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 @WebListener
-@Component
 public class HttpSession1Listener implements HttpSessionListener {
     Logger logger = LoggerFactory.getLogger(HttpSession1Listener.class);
 
+    @Override
     public void sessionCreated(HttpSessionEvent se) {
         logger.info("session增加");
         SysUtil.ONLINE_COUNT += 1;
     }
-
+    @Override
     public void sessionDestroyed(HttpSessionEvent se) {
         logger.info("session销毁");
         SysUtil.ONLINE_COUNT -= 1;

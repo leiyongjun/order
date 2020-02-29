@@ -11,6 +11,8 @@ public class UserInfo implements Serializable {
 
     private String userPwd;
 
+    private String imgCode;
+
     private Integer pwErrCount;
 
     private String status;
@@ -73,5 +75,14 @@ public class UserInfo implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+
+    public String getImgCode() {
+        return imgCode;
+    }
+
+    public void setImgCode(String imgCode) {
+        this.imgCode = imgCode;
     }
 }

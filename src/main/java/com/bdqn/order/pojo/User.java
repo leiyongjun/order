@@ -9,6 +9,8 @@ public class User {
 
     private String userPwd;
 
+    private String imgCode;
+
     private BigDecimal userBalance;
 
     public Integer getUserId() {
@@ -41,5 +43,13 @@ public class User {
 
     public void setUserBalance(BigDecimal userBalance) {
         this.userBalance = userBalance;
+    }
+
+    public String getImgCode() {
+        return imgCode;
+    }
+
+    public void setImgCode(String imgCode) {
+        this.imgCode = imgCode;
     }
 }
