@@ -32,7 +32,14 @@ public class UserServiceImpl implements UserService {
         Map map = new HashMap();
         map.put("retCode", "1000");
         map.put("retMsg","登陆成功");
-        // 对图形验证码进行校验
+        // 查询用户数据
+        UserInfo u1 =
+                this.userInfoMapper.selectByPrimaryKey(5);
+        System.out.println("u11 : " + u1.getUserName());
+
+        UserInfo u2 =
+                this.userInfoMapper.selectByPrimaryKey(5);
+        System.out.println("u22 : " + u1.getUserName());
 
         // 图片验证码校验通过,执行shiro的密码校验
         Subject subject= SecurityUtils.getSubject();

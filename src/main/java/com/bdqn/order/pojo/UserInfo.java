@@ -1,9 +1,12 @@
 package com.bdqn.order.pojo;
 
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@ToString
 public class UserInfo implements Serializable {
     private Integer userId;
 

@@ -28,9 +28,11 @@ spring:
 #mybatis
 mybatis:
   type-aliases-package: com.bdqn.order.pojo
-
   mapperLocations: classpath*:mybatis/**/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
 
-
-
+socket:
+  port: 18089
 

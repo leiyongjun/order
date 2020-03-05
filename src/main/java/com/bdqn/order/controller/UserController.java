@@ -4,6 +4,7 @@ import com.bdqn.order.pojo.UserInfo;
 import com.bdqn.order.service.UserService;
 import com.bdqn.order.service.impl.UserServiceImpl;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @CrossOrigin
 @RestController
 @RequestMapping("/login")
@@ -37,14 +39,10 @@ public class UserController {
     DefaultKaptcha defaultKaptcha;
 
     @RequestMapping("")
-    public Map doLogin(@RequestBody UserInfo userInfo, HttpSession session){
+    public Map doLogin(@RequestBody(required=false) UserInfo userInfo, HttpSession session){
         Map retMap = new HashMap();
 
-        if(!session.getAttribute("rightCode").toString().equals(userInfo.getImgCode())){
-            retMap.put("retCode", "999");
-            retMap.put("retMsg", "验证码错误!");
-            return retMap;
-        }
+        log.info("登陆开始了....");
 
         System.out.println("sessionId :::" + session.getId());
         String sessImgCode = session.getAttribute("rightCode") == null ?
